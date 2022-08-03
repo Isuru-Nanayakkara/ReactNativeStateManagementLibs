@@ -2,7 +2,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import AppStack from './src/navigation';
 
 /************************************************/
-// Uncomment below section when testing useState, Hookstate
+// Uncomment below section when testing useState, Hookstate, MobX
 /************************************************/
 import React from 'react';
 

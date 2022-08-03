@@ -1,4 +1,6 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {action, makeObservable, observable} from 'mobx';
+import {makePersistable} from 'mobx-persist-store';
 
 class CounterStore {
   count = 0;
@@ -13,6 +15,12 @@ class CounterStore {
       },
       {autoBind: true},
     );
+
+    makePersistable(this, {
+      name: 'Counter',
+      properties: ['count'],
+      storage: AsyncStorage,
+    });
   }
 
   increment() {
