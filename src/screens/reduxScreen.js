@@ -8,17 +8,19 @@ const ReduxScreen = () => {
   const counter = useSelector(state => state.counter);
   const dispatch = useDispatch();
 
+  function incrementCount() {
+    dispatch(IncrementCount());
+  }
+
+  function decrementCount() {
+    dispatch(DecrementCount());
+  }
+
   return (
     <SafeAreaView style={styles.screenContainer}>
       <Text style={styles.countLabel}>{counter.count}</Text>
-      <Button
-        title="Increment Count"
-        onPress={() => dispatch(IncrementCount())}
-      />
-      <Button
-        title="Decrement Count"
-        onPress={() => dispatch(DecrementCount())}
-      />
+      <Button title="Increment Count" onPress={incrementCount} />
+      <Button title="Decrement Count" onPress={decrementCount} />
     </SafeAreaView>
   );
 };
