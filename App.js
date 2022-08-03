@@ -63,11 +63,11 @@ const App = () => {
 /************************************************/
 // import {StoreProvider} from 'easy-peasy';
 // import React from 'react';
-// import Store from './src/providers/easyPeasyCode';
+// import store from './src/providers/easyPeasyCode';
 
 // const App = () => {
 //   return (
-//     <StoreProvider store={Store}>
+//     <StoreProvider store={store}>
 //       <NavigationContainer>
 //         <AppStack />
 //       </NavigationContainer>
