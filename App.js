@@ -4,15 +4,15 @@ import AppStack from './src/navigation';
 /************************************************/
 // Uncomment below section when testing useState, Hookstate, MobX
 /************************************************/
-import React from 'react';
+// import React from 'react';
 
-const App = () => {
-  return (
-    <NavigationContainer>
-      <AppStack />
-    </NavigationContainer>
-  );
-};
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <AppStack />
+//     </NavigationContainer>
+//   );
+// };
 
 /************************************************/
 // Uncomment below section when testing Redux
@@ -74,5 +74,21 @@ const App = () => {
 //     </StoreProvider>
 //   );
 // };
+
+/************************************************/
+// Uncomment below section when testing recoil
+/************************************************/
+import React from 'react';
+import {RecoilRoot} from 'recoil';
+
+const App = () => {
+  return (
+    <RecoilRoot>
+      <NavigationContainer>
+        <AppStack />
+      </NavigationContainer>
+    </RecoilRoot>
+  );
+};
 
 export default App;
