@@ -4,15 +4,15 @@ import AppStack from './src/navigation';
 /************************************************/
 // Uncomment below section when testing useState, Hookstate
 /************************************************/
-// import React from 'react';
+import React from 'react';
 
-// const App = () => {
-//   return (
-//     <NavigationContainer>
-//       <AppStack />
-//     </NavigationContainer>
-//   );
-// };
+const App = () => {
+  return (
+    <NavigationContainer>
+      <AppStack />
+    </NavigationContainer>
+  );
+};
 
 /************************************************/
 // Uncomment below section when testing Redux
@@ -61,18 +61,18 @@ import AppStack from './src/navigation';
 /************************************************/
 // Uncomment below section when testing Easy Peasy
 /************************************************/
-import {StoreProvider} from 'easy-peasy';
-import React from 'react';
-import Store from './src/providers/easyPeasyCode';
+// import {StoreProvider} from 'easy-peasy';
+// import React from 'react';
+// import Store from './src/providers/easyPeasyCode';
 
-const App = () => {
-  return (
-    <StoreProvider store={Store}>
-      <NavigationContainer>
-        <AppStack />
-      </NavigationContainer>
-    </StoreProvider>
-  );
-};
+// const App = () => {
+//   return (
+//     <StoreProvider store={Store}>
+//       <NavigationContainer>
+//         <AppStack />
+//       </NavigationContainer>
+//     </StoreProvider>
+//   );
+// };
 
 export default App;
