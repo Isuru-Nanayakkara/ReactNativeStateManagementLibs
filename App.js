@@ -1,111 +1,66 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {Button, SafeAreaView, StyleSheet} from 'react-native';
+import ContextAPIScreen from './src/screens/contextAPIScreen';
+import EasyPeasyScreen from './src/screens/easyPeasyScreen';
+import HookstateScreen from './src/screens/hookstateScreen';
+import MobXScreen from './src/screens/mobxScreen';
+import RecoilScreen from './src/screens/recoilScreen';
+import ReduxScreen from './src/screens/reduxScreen';
+import UseStateScreen from './src/screens/useStateScreen';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const Stack = createNativeStackNavigator();
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <NavigationContainer>
+      <AppStack />
+    </NavigationContainer>
   );
 };
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+const AppStack = () => {
+  const {Navigator, Screen} = Stack;
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+    <Navigator initialRouteName="Home">
+      <Screen name="Home" component={HomeScreen} />
+
+      <Screen name="UseState" component={UseStateScreen} />
+      <Screen name="Redux" component={ReduxScreen} />
+      <Screen name="Context API" component={ContextAPIScreen} />
+      <Screen name="Hookstate" component={HookstateScreen} />
+      <Screen name="Easy Peasy" component={EasyPeasyScreen} />
+      <Screen name="MobX" component={MobXScreen} />
+      <Screen name="Recoil" component={RecoilScreen} />
+    </Navigator>
+  );
+};
+
+const HomeScreen = ({navigation}) => {
+  function goTo(path) {
+    navigation.navigate(path);
+  }
+
+  return (
+    <SafeAreaView style={styles.appContainer}>
+      <Button title="1) useState" onPress={() => goTo('UseState')} />
+      <Button title="2) Redux" onPress={() => goTo('Redux')} />
+      <Button title="3) Context API" onPress={() => goTo('Context API')} />
+      <Button title="4) Hookstate" onPress={() => goTo('Hookstate')} />
+      <Button title="5) Easy Peasy" onPress={() => goTo('Easy Peasy')} />
+      <Button title="6) MobX" onPress={() => goTo('MobX')} />
+      <Button title="7) Recoil" onPress={() => goTo('Recoil')} />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  appContainer: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
   },
 });
 
