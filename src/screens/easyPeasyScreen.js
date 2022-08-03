@@ -1,11 +1,11 @@
 import React from 'react';
 import {Button, SafeAreaView, Text} from 'react-native';
-import appStyles from '../../src/styles';
+import styles from '../../src/styles';
 
 const EasyPeasyScreen = () => {
   return (
-    <SafeAreaView style={appStyles.appContainer}>
-      <Text style={appStyles.countLabel}>1</Text>
+    <SafeAreaView style={styles.screenContainer}>
+      <Text style={styles.countLabel}>1</Text>
       <Button title="Increment Count" />
       <Button title="Decrement Count" />
     </SafeAreaView>

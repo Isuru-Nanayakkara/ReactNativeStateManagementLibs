@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import {Button, SafeAreaView, StyleSheet} from 'react-native';
+import {Button, SafeAreaView} from 'react-native';
 import ContextAPIScreen from './src/screens/contextAPIScreen';
 import EasyPeasyScreen from './src/screens/easyPeasyScreen';
 import HookstateScreen from './src/screens/hookstateScreen';
@@ -9,6 +9,8 @@ import MobXScreen from './src/screens/mobxScreen';
 import RecoilScreen from './src/screens/recoilScreen';
 import ReduxScreen from './src/screens/reduxScreen';
 import UseStateScreen from './src/screens/useStateScreen';
+
+import styles from './src/styles';
 
 const Stack = createNativeStackNavigator();
 
@@ -55,13 +57,5 @@ const HomeScreen = ({navigation}) => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1,
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-  },
-});
 
 export default App;
