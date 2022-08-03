@@ -1,4 +1,6 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {combineReducers, createStore} from 'redux';
+import {persistReducer, persistStore} from 'redux-persist';
 
 // State
 const initialState = {
@@ -41,8 +43,18 @@ const counter = (state = initialState, action) => {
 // Root reducer
 const rootReducer = combineReducers({counter});
 
+// Persistance config
+const persistConfig = {
+  key: 'root',
+  storage: AsyncStorage,
+};
+
+// Persist reducer
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 // Redux store
 export default () => {
-  let reduxStore = createStore(rootReducer);
-  return {reduxStore};
+  let reduxStore = createStore(persistedReducer);
+  let persister = persistStore(reduxStore);
+  return {reduxStore, persister};
 };

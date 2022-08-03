@@ -1,6 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 import AppStack from './src/navigation';
 import Store from './src/providers/reduxCode';
 
@@ -14,14 +15,16 @@ import Store from './src/providers/reduxCode';
 
 // When using Redux
 const App = () => {
-  const {reduxStore} = Store();
+  const {reduxStore, persister} = Store();
 
   return (
-    <Provider store={reduxStore}>
-      <NavigationContainer>
-        <AppStack />
-      </NavigationContainer>
-    </Provider>
+    <PersistGate loading={null} persistor={persister}>
+      <Provider store={reduxStore}>
+        <NavigationContainer>
+          <AppStack />
+        </NavigationContainer>
+      </Provider>
+    </PersistGate>
   );
 };
 
