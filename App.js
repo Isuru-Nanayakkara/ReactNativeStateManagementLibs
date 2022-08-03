@@ -78,15 +78,18 @@ import AppStack from './src/navigation';
 /************************************************/
 // Uncomment below section when testing recoil
 /************************************************/
-import React from 'react';
+import React, {Suspense} from 'react';
+import {Text} from 'react-native';
 import {RecoilRoot} from 'recoil';
 
 const App = () => {
   return (
     <RecoilRoot>
-      <NavigationContainer>
-        <AppStack />
-      </NavigationContainer>
+      <Suspense fallback={<Text>Loading...</Text>}>
+        <NavigationContainer>
+          <AppStack />
+        </NavigationContainer>
+      </Suspense>
     </RecoilRoot>
   );
 };
