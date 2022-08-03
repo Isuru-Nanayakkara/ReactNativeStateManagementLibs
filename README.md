@@ -2,7 +2,7 @@
 
 A demo project showcasing various React Native state management libraries.
 
-This project is based off of [this awesome video series](https://youtube.com/playlist?list=PLOrIp4IaHcFN-YwTYhWpTfIQy5cBp3NwB).
+This project is based off of [this great video series](https://youtube.com/playlist?list=PLOrIp4IaHcFN-YwTYhWpTfIQy5cBp3NwB).
 
 ---
 
