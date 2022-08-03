@@ -2,20 +2,20 @@ import {NavigationContainer} from '@react-navigation/native';
 import AppStack from './src/navigation';
 
 /************************************************/
-// Uncomment below section for normal behavior without libraries
+// Uncomment below section when testing useState, Hookstate
 /************************************************/
-import React from 'react';
+// import React from 'react';
 
-const App = () => {
-  return (
-    <NavigationContainer>
-      <AppStack />
-    </NavigationContainer>
-  );
-};
+// const App = () => {
+//   return (
+//     <NavigationContainer>
+//       <AppStack />
+//     </NavigationContainer>
+//   );
+// };
 
 /************************************************/
-// Uncomment below section when trying Redux
+// Uncomment below section when testing Redux
 /************************************************/
 // import React from 'react';
 // import {Provider} from 'react-redux';
@@ -37,7 +37,7 @@ const App = () => {
 // };
 
 /************************************************/
-// Uncomment below section when trying Context API
+// Uncomment below section when testing Context API
 /************************************************/
 // import React, {useReducer} from 'react';
 // import {
@@ -57,5 +57,22 @@ const App = () => {
 //     </CounterContext.Provider>
 //   );
 // };
+
+/************************************************/
+// Uncomment below section when testing Easy Peasy
+/************************************************/
+import {StoreProvider} from 'easy-peasy';
+import React from 'react';
+import Store from './src/providers/easyPeasyCode';
+
+const App = () => {
+  return (
+    <StoreProvider store={Store}>
+      <NavigationContainer>
+        <AppStack />
+      </NavigationContainer>
+    </StoreProvider>
+  );
+};
 
 export default App;
