@@ -44,5 +44,5 @@ const rootReducer = combineReducers({counter});
 // Redux store
 export default () => {
   let reduxStore = createStore(rootReducer);
-  return reduxStore;
+  return {reduxStore};
 };
