@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Button, SafeAreaView, Text} from 'react-native';
 import styles from '../../src/styles';
 
-const UserStateScreen = () => {
+const UseStateScreen = () => {
   const [count, setCount] = useState(0);
 
   function incrementCount() {
@@ -22,4 +22,4 @@ const UserStateScreen = () => {
   );
 };
 
-export default UserStateScreen;
+export default UseStateScreen;
